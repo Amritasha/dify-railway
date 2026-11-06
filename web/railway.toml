@@ -1,4 +1,5 @@
 [deploy]
-healthcheckPath = "/apps"
-healthcheckTimeout = 300
+# No healthcheckPath here on purpose: every page of the console redirects to the
+# sign-in flow, so there is no path that reliably answers 200 before setup and a
+# healthcheck against one just fails the deploy.
 restartPolicyType = "ON_FAILURE"

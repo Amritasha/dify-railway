@@ -1,0 +1,7 @@
+[deploy]
+healthcheckPath = "/health"
+# The first boot runs the full database migration set before the API binds a
+# port. On a cold Postgres that takes minutes, and a short healthcheck window
+# kills the container part-way through a migration.
+healthcheckTimeout = 900
+restartPolicyType = "ON_FAILURE"
